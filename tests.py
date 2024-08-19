@@ -28,8 +28,9 @@ class TestBooksCollector:
 # фикстуру добавления новой книги и фикстуру добавления книги в избранное
 
     # Проверяем, что у добавленной книги нет жанра
-    def test_add_new_book_added_without_genre(self, collector, added_book):
-        assert collector.get_book_genre(added_book) == ''
+    def test_add_new_book_added_without_genre(self, collector):
+        collector.add_new_book('Война и мир')
+        assert collector.get_book_genre('Война и мир') == ''
 
     # Проверяем, что невозможно добавить книгу с названием более 40 символов
     def test_add_new_book_with_too_long_name(self, collector):
